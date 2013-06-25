@@ -21,7 +21,7 @@
       "url": "https://github.com/ericclemmons/grunt-react/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "Gruntfile.js",
+  "main": "main.js",
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -44,6 +44,7 @@
     "jsx"
   ],
   "dependencies": {
-    "react-tools": "~0.3.3"
+    "react-tools": "~0.3.3",
+    "through": "~2.3.4"
   }
 }

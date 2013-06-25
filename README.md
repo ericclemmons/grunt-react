@@ -2,6 +2,8 @@
 
 > Grunt task for compiling [Facebook React](http://facebook.github.io/react/)'s .jsx templates into .js
 
+It also works great with `grunt-browserify`!
+
 ## Getting Started
 This plugin requires Grunt `~0.4.0`
 
@@ -36,6 +38,39 @@ grunt.initConfig({
   },
 })
 ```
+
+### Recommended Usage
+Writing your applications in CommonJS format will allow you to use [Browserify](http://browserify.org/) to
+concatenate your files.  Plus, with `grunt-react`, your templates will be converted from JSX to JS *automatically*!
+
+First, install `grunt-browserify` to your project:
+
+```shell
+npm install grunt-browserify --save-dev
+```
+
+Second, register `grunt-browserify` in your Gruntfile:
+
+```js
+grunt.loadNpmTasks('grunt-browserify')
+```
+
+Finally, add the following task to your Gruntfile:
+
+```js
+browserify:     {
+  options:      {
+    transform:  [ require('grunt-react').browserify ]
+  },
+  app:          {
+    src:        'path/to/source/main.js',
+    dest:       'path/to/target/output.js'
+  }
+}
+```
+
+You've successfully concatenated your JSX & JS files into one file!
+
 
 ### Options
 
