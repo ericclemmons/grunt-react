@@ -74,9 +74,11 @@ grunt.initConfig({
     options: {
       extension: 'jsx'
     },
-    files: {
-      'path/to/output/dir': 'path/to/jsx/templates/dir'
-    },
+    app: {
+      files: {
+        'path/to/output/dir': 'path/to/jsx/templates/dir'
+      }
+    }
   },
 })
 ```
