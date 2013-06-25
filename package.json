@@ -1,0 +1,43 @@
+{
+  "name": "grunt-react",
+  "description": "Grunt task for compiling Facebook React's .jsx templates into .js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ericclemmons/grunt-react",
+  "author": {
+    "name": "Eric Clemmons",
+    "email": "eric@smarterspam.com",
+    "url": "https://github.com/ericclemmons"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ericclemmons/grunt-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ericclemmons/grunt-react/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ericclemmons/grunt-react/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt": "~0.4.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
