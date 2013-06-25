@@ -8,42 +8,49 @@
 
 'use strict';
 
+var Path  = require('path');
+var path  = Path.dirname(require.resolve('react-tools'));
+var jsx   = Path.join(path, 'bin', 'jsx');
+var spawn = require('child_process').spawn;
+
 module.exports = function(grunt) {
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
-
-  grunt.registerMultiTask('react', 'Your task description goes here.', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
+  grunt.registerMultiTask('react', 'Compile Facebook React .jsx templates into .js', function() {
+    var done    = grunt.task.current.async();
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      extension: 'js'
     });
 
-    // Iterate over all specified file groups.
     this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
+      var src = f.src.filter(function(dir) {
+        if (!grunt.file.exists(dir)) {
+          grunt.log.warn('Directory "' + dir + '" not found.');
+
           return false;
-        } else {
-          return true;
+        } else if (!grunt.file.isDir(dir)) {
+          grunt.log.warn(dir + ' is not a directory.');
+
+          return false;
         }
-      }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
 
-      // Handle options.
-      src += options.punctuation;
+        return true;
+      }).map(function(dir) {
+        var source  = Path.resolve(dir);
+        var target  = Path.resolve(f.dest);
+        var args    = [source, target];
 
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
+        if (options.extension) {
+          args.unshift('--extension=' + options.extension);
+        }
 
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
+        if (options.relative) {
+          args.unshift('--relative');
+        }
+
+        var conversion = spawn(jsx, args, { stdio: 'inherit'});
+
+        conversion.on('close', done);
+      });
     });
   });
 

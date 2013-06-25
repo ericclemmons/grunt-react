@@ -1,7 +1,7 @@
 /**
- * @jsx React.DOM
+ * Plain JS file
  */
 
 (function(greeting) {
   return greeting;
-})(React.DOM.p(null, "Howdy"));
+})('<p>Howdy</p>');

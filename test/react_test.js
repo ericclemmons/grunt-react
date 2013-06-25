@@ -24,25 +24,44 @@ var grunt = require('grunt');
 
 exports.react = {
   setUp: function(done) {
-    // setup here if necessary
     done();
   },
-  default_options: function(test) {
+  default_options_js: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    var actual    = grunt.file.read('tmp/default_options/js/fixture.js');
+    var expected  = grunt.file.read('test/fixtures/js/fixture.js');
 
+    test.equal(actual, expected, 'should leave vanilla JS alone');
     test.done();
   },
-  custom_options: function(test) {
+  default_options_jsx_as_js: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    var actual    = grunt.file.read('tmp/default_options/js/fixture-jsx.js');
+    var expected  = grunt.file.read('test/expected/default_options');
 
+    test.equal(actual, expected, 'should convert JSX into JS');
     test.done();
   },
+
+  extension_option_js_as_jsx: function(test) {
+    test.expect(1);
+
+    var actual    = grunt.file.read('tmp/extension_option/jsx/nested/fixture-js.js');
+    var expected  = grunt.file.read('test/fixtures/jsx/nested/fixture-js.jsx');
+
+    test.equal(actual, expected, 'should leave vanilla JS alone');
+    test.done();
+  },
+
+  extension_option_jsx: function(test) {
+    test.expect(1);
+
+    var actual    = grunt.file.read('tmp/extension_option/jsx/fixture.js');
+    var expected  = grunt.file.read('test/expected/extension_option');
+
+    test.equal(actual, expected, 'should convert JSX into JS');
+    test.done();
+  }
 };

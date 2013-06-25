@@ -31,21 +31,18 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     react: {
       default_options: {
-        options: {
-        },
         files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
+          'tmp/default_options': 'test/fixtures',
         },
       },
-      custom_options: {
+      extension_option: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!',
+          extension: 'jsx'
         },
         files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
+          'tmp/extension_option': 'test/fixtures'
+        }
+      }
     },
 
     // Unit tests.
