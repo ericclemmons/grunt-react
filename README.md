@@ -139,6 +139,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.2.0
+
+- Add `require('grunt-react').browserify()` and `require('grunt-react').source()` for compiling within Node
+
 ### v0.1.0
 
 - Initial release
