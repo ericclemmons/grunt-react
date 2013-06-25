@@ -1,4 +1,4 @@
-# grunt-react
+# grunt-react [![Build Status](https://travis-ci.org/ericclemmons/grunt-react.png?branch=master)](https://travis-ci.org/ericclemmons/grunt-react)
 
 > Grunt task for compiling [Facebook React](http://facebook.github.io/react/)'s .jsx templates into .js
 
