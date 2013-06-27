@@ -8,17 +8,21 @@
 
 'use strict';
 
-var Path  = require('path');
-var path  = Path.dirname(require.resolve('react-tools'));
-var jsx   = Path.join(path, 'bin', 'jsx');
-var spawn = require('child_process').spawn;
+var fs = require('fs');
+var glob = require('glob');
+var mkdirp = require('mkdirp');
+var path = require('path');
+
+var visitors = require('react-tools/vendor/fbtransform/visitors').transformVisitors;
+var transform = require('react-tools/vendor/fbtransform/lib/transform').transform;
 
 module.exports = function(grunt) {
 
   grunt.registerMultiTask('react', 'Compile Facebook React .jsx templates into .js', function() {
     var done    = grunt.task.current.async();
     var options = this.options({
-      extension: 'js'
+      extension: 'js',
+      ignoreMTime: false
     });
 
     this.files.forEach(function(f) {
@@ -35,21 +39,34 @@ module.exports = function(grunt) {
 
         return true;
       }).map(function(dir) {
-        var source  = Path.resolve(dir);
-        var target  = Path.resolve(f.dest);
-        var args    = [source, target];
 
-        if (options.extension) {
-          args.unshift('--extension=' + options.extension);
-        }
+        var source  = path.resolve(dir);
+        var target  = path.resolve(f.dest);
 
-        if (options.relative) {
-          args.unshift('--relative');
-        }
+        // Find all of the files to transform.
+        glob(path.join(source, '**', '*.' + options.extension), {}, function(er, files) {
+          files.map(function(srcFile) {
+            var destFile = target + srcFile.substring(source.length, srcFile.length - options.extension.length) + 'js';
 
-        var conversion = spawn(jsx, args, { stdio: 'inherit'});
+            if (!options.ignoreMTime) {
+              var srcStat = fs.statSync(srcFile);
+              var destStat = fs.existsSync(destFile) && fs.statSync(destFile);
 
-        conversion.on('close', done);
+              if (destStat && Date.parse(srcStat.mtime) < Date.parse(destStat.mtime)) {
+                return;
+              }
+            }
+
+            var src = fs.readFileSync(srcFile).toString();
+            var newSrc = transform(visitors.react, src).code;
+            var destDir = path.dirname(destFile);
+
+            mkdirp.sync(destDir);
+            // mkdir
+            fs.writeFileSync(destFile, newSrc);
+          });
+          done();
+        });
       });
     });
   });
