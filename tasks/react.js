@@ -8,12 +8,20 @@
 
 'use strict';
 
-var fs = require('fs');
-var glob = require('glob');
-var mkdirp = require('mkdirp');
-var path = require('path');
+/**
+ * Module dependencies
+ */
 
-var visitors = require('react-tools/vendor/fbtransform/visitors').transformVisitors;
+var fs      = require('fs');
+var glob    = require('glob');
+var mkdirp  = require('mkdirp');
+var path    = require('path');
+
+/**
+ * React dependencies
+ */
+
+var visitors  = require('react-tools/vendor/fbtransform/visitors').transformVisitors;
 var transform = require('react-tools/vendor/fbtransform/lib/transform').transform;
 
 module.exports = function(grunt) {
@@ -21,8 +29,8 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('react', 'Compile Facebook React .jsx templates into .js', function() {
     var done    = grunt.task.current.async();
     var options = this.options({
-      extension: 'js',
-      ignoreMTime: false
+      extension:    'js',
+      ignoreMTime:  false
     });
 
     this.files.forEach(function(f) {
@@ -57,12 +65,12 @@ module.exports = function(grunt) {
               }
             }
 
-            var src = fs.readFileSync(srcFile).toString();
-            var newSrc = transform(visitors.react, src).code;
+            var src     = fs.readFileSync(srcFile).toString();
+            var newSrc  = transform(visitors.react, src).code;
             var destDir = path.dirname(destFile);
 
             mkdirp.sync(destDir);
-            // mkdir
+
             fs.writeFileSync(destFile, newSrc);
           });
           done();
