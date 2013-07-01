@@ -29,7 +29,8 @@ grunt.initConfig({
   react: {
     app: {
       options: {
-        extension: 'js' // Default
+        extension:    'js'  // Default,
+        ignoreMTime:  false // Default
       },
       files: {
         'path/to/output/dir': 'path/to/jsx/templates/dir'
@@ -38,6 +39,8 @@ grunt.initConfig({
   },
 })
 ```
+
+- - -
 
 ### Recommended Usage
 Writing your applications in CommonJS format will allow you to use [Browserify](http://browserify.org/) to
@@ -79,6 +82,14 @@ Type: `String`
 Default value: `js`
 
 Extension of files to search for JSX-syntax & convert to JS.
+
+#### options.ignoreMTime
+Type: `Boolean`
+Default value: `false`
+
+Speed up compilation of JSX files by skipping files not modified since last pass.
+
+- - -
 
 ### Usage Examples
 
@@ -138,6 +149,11 @@ var MyComponent = React.createClass({displayName: 'MyComponent',
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+### v0.3.0
+
+- No longer uses `bin/jsx`, thanks to @petehunt ([#2](https://github.com/ericclemmons/grunt-react/pull/2))
+- Add `ignoreMTime` option
 
 ### v0.2.0
 
