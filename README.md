@@ -150,6 +150,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.4.0
+
+- Update to react-tools ~0.4.0, thanks to @Agent-H ([#3](https://github.com/ericclemmons/grunt-react/pull/3))
+
 ### v0.3.0
 
 - No longer uses `bin/jsx`, thanks to @petehunt ([#2](https://github.com/ericclemmons/grunt-react/pull/2))
