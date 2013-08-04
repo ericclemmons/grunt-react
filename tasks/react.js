@@ -65,6 +65,8 @@ module.exports = function(grunt) {
               }
             }
 
+            grunt.log.writeln("[react] "+srcFile+" --> "+destFile);
+
             var src     = fs.readFileSync(srcFile).toString();
             var newSrc  = transform(visitors.react, src).code;
             var destDir = path.dirname(destFile);
