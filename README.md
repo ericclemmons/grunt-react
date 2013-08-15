@@ -33,7 +33,7 @@ grunt.initConfig({
         ignoreMTime:  false // Default
       },
       files: {
-        'path/to/output/dir': 'path/to/jsx/templates/dir'
+        'path/to/jsx/templates/dir': 'path/to/output/dir'
       }
     },
   },
@@ -122,7 +122,7 @@ grunt.initConfig({
     },
     app: {
       files: {
-        'path/to/output/dir': 'path/to/jsx/templates/dir'
+        'path/to/jsx/templates/dir': 'path/to/output/dir'
       }
     }
   },
