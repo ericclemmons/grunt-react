@@ -150,6 +150,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.5.0
+
+- Update to `react-tools` `~v0.5.0`
+
 ### v0.4.1
 
 - Add logging to make it easier catch errors, thanks to @lorefnon ([#5](https://github.com/ericclemmons/grunt-react/pull/5))
