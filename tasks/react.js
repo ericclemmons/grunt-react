@@ -12,17 +12,12 @@
  * Module dependencies
  */
 
-var fs      = require('fs');
-var glob    = require('glob');
-var mkdirp  = require('mkdirp');
-var path    = require('path');
+var fs        = require('fs');
+var glob      = require('glob');
+var mkdirp    = require('mkdirp');
+var path      = require('path');
+var transform = require('react-tools').transform;
 
-/**
- * React dependencies
- */
-
-var visitors  = require('react-tools/vendor/fbtransform/visitors').transformVisitors;
-var transform = require('react-tools/vendor/fbtransform/lib/transform').transform;
 
 module.exports = function(grunt) {
 
@@ -68,7 +63,7 @@ module.exports = function(grunt) {
             grunt.log.writeln("[react] "+srcFile+" --> "+destFile);
 
             var src     = fs.readFileSync(srcFile).toString();
-            var newSrc  = transform(visitors.react, src).code;
+            var newSrc  = transform(src);
             var destDir = path.dirname(destFile);
 
             mkdirp.sync(destDir);
