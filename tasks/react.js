@@ -25,6 +25,7 @@ module.exports = function(grunt) {
     var done    = grunt.task.current.async();
     var options = this.options({
       extension:    'js',
+      ignoreErrors: false,
       ignoreMTime:  false
     });
 
@@ -62,13 +63,22 @@ module.exports = function(grunt) {
 
             grunt.log.writeln("[react] "+srcFile+" --> "+destFile);
 
-            var src     = fs.readFileSync(srcFile).toString();
-            var newSrc  = transform(src);
-            var destDir = path.dirname(destFile);
-
-            mkdirp.sync(destDir);
-
-            fs.writeFileSync(destFile, newSrc);
+            var src = fs.readFileSync(srcFile).toString();
+            
+            try {
+              var newSrc = transform(src);
+              var destDir = path.dirname(destFile);
+              mkdirp.sync(destDir);
+              fs.writeFileSync(destFile, newSrc);
+            } catch (e) {
+              if (options.ignoreErrors) {
+                var error = grunt.log.wordlist(['[react] ' + e], {color: 'red'});
+                grunt.log.error(error);
+              } else {
+                throw e;
+              }
+            }
+            
           });
           done();
         });
