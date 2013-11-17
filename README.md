@@ -1,6 +1,6 @@
 # grunt-react [![Build Status](https://travis-ci.org/ericclemmons/grunt-react.png?branch=master)](https://travis-ci.org/ericclemmons/grunt-react)
 
-> Grunt task for compiling [Facebook React](http://facebook.github.io/react/)'s .jsx templates into .js
+> Grunt task for compiling [Facebook React](http://facebook.github.io/react/)'s JSX templates into JavaScript.
 
 It also works great with `grunt-browserify`!
 
@@ -27,15 +27,30 @@ In your project's Gruntfile, add a section named `react` to the data object pass
 ```js
 grunt.initConfig({
   react: {
-    app: {
-      options: {
-        extension:    'js'  // Default,
-        ignoreMTime:  false // Default
-      },
+    single_file_output: {
       files: {
-        'path/to/output/dir': 'path/to/jsx/templates/dir'
+        'path/to/output/dir/output.js': 'path/to/jsx/templates/dir/input.jsx'
       }
     },
+    combined_file_output: {
+      files: {
+        'path/to/output/dir/combined.js': [
+          'path/to/jsx/templates/dir/input1.jsx',
+          'path/to/jsx/templates/dir/input2.jsx'
+        ]
+      }
+    },
+    dynamic_mappings: {
+      files: [
+        {
+          expand: true,
+          cwd: 'path/to/jsx/templates/dir',
+          src: ['**/*.jsx'],
+          dest: 'path/to/output/dir',
+          ext: '.js'
+        }
+      ]
+    }
   },
 })
 ```
@@ -117,14 +132,15 @@ Then, set your Gruntfile to use:
 ```js
 grunt.initConfig({
   react: {
-    options: {
-      extension: 'jsx'
-    },
-    app: {
-      files: {
-        'path/to/output/dir': 'path/to/jsx/templates/dir',
+    files: [
+      {
+        expand: true,
+        cwd: 'path/to/jsx/templates/dir',
+        src: ['**/*.jsx'],
+        dest: 'path/to/output/dir',
+        ext: '.js'
       }
-    }
+    ]
   },
 })
 ```
@@ -149,6 +165,14 @@ var MyComponent = React.createClass({displayName: 'MyComponent',
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+### v0.6.0
+
+- Task changes to allow for flexible file options as found in the grunt-contrib projects.
+- Taking hints from grunt-contrib-less to allow for compiling single files separately, dynamic mappings and combining.
+- Removed extension option as this is determined by flexible file matching now.
+- Removed MT time ignoring, this can be easily done with the grunt-newer plugin.
+- Errors are ignored and skipped by default to match how other grunt plugins work.
 
 ### v0.5.0
 

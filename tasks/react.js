@@ -2,88 +2,66 @@
  * grunt-react
  * https://github.com/ericclemmons/grunt-react
  *
- * Copyright (c) 2013 Eric Clemmons
+ * Copyright (c) 2013 Eric Clemmons, contributors
  * Licensed under the MIT license.
  */
 
 'use strict';
 
-/**
- * Module dependencies
- */
-
-var fs        = require('fs');
-var glob      = require('glob');
-var mkdirp    = require('mkdirp');
-var path      = require('path');
-var transform = require('react-tools').transform;
-
-
 module.exports = function(grunt) {
 
-  grunt.registerMultiTask('react', 'Compile Facebook React .jsx templates into .js', function() {
-    var done    = grunt.task.current.async();
-    var options = this.options({
-      extension:    'js',
-      ignoreErrors: false,
-      ignoreMTime:  false
-    });
+  var path = require('path');
+  var transform = require('react-tools').transform;
 
-    this.files.forEach(function(f) {
-      var src = f.src.filter(function(dir) {
-        if (!grunt.file.exists(dir)) {
-          grunt.log.warn('Directory "' + dir + '" not found.');
+  grunt.registerMultiTask('react', 'Compile Facebook React JSX templates into JavaScript', function() {
+    var done = this.async();
+    
+    var options = this.options();
+    grunt.verbose.writeflags(options, 'Options');
+    
+    if (this.files.length < 1) {
+      grunt.verbose.warn('Destination not written because no source files were provided.');
+    }
+    
+    grunt.util.async.forEachSeries(this.files, function(f, nextFileObj) {
+      var destFile = f.dest;
 
+      var files = f.src.filter(function(filepath) {
+        if (!grunt.file.exists(filepath)) {
+          grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
-        } else if (!grunt.file.isDir(dir)) {
-          grunt.log.warn(dir + ' is not a directory.');
+        } else {
+          return true;
+        }
+      });
 
-          return false;
+      if (files.length === 0) {
+        if (f.src.length < 1) {
+          grunt.log.warn('Destination not written because no source files were found.');
         }
 
-        return true;
-      }).map(function(dir) {
+        // No src files, go to next target. Warn would have been issued above.
+        return nextFileObj();
+      }
 
-        var source  = path.resolve(dir);
-        var target  = path.resolve(f.dest);
-
-        // Find all of the files to transform.
-        glob(path.join(source, '**', '*.' + options.extension), {}, function(er, files) {
-          files.map(function(srcFile) {
-            var destFile = target + srcFile.substring(source.length, srcFile.length - options.extension.length) + 'js';
-
-            if (!options.ignoreMTime) {
-              var srcStat = fs.statSync(srcFile);
-              var destStat = fs.existsSync(destFile) && fs.statSync(destFile);
-
-              if (destStat && Date.parse(srcStat.mtime) < Date.parse(destStat.mtime)) {
-                return;
-              }
-            }
-
-            grunt.log.writeln("[react] "+srcFile+" --> "+destFile);
-
-            var src = fs.readFileSync(srcFile).toString();
-            
-            try {
-              var newSrc = transform(src);
-              var destDir = path.dirname(destFile);
-              mkdirp.sync(destDir);
-              fs.writeFileSync(destFile, newSrc);
-            } catch (e) {
-              if (options.ignoreErrors) {
-                var error = grunt.log.wordlist(['[react] ' + e], {color: 'red'});
-                grunt.log.error(error);
-              } else {
-                throw e;
-              }
-            }
-            
-          });
-          done();
-        });
+      var compiled = [];
+      grunt.util.async.concatSeries(files, function(file, next) {
+        grunt.log.writeln('[react] Compiling ' + file.cyan + ' --> ' + destFile.cyan);
+                
+        try {
+          compiled.push(transform(grunt.file.read(file)));
+          next();
+        } catch (e) {
+          var error = grunt.log.wordlist(['[react] ' + e], { color: 'red' });
+          grunt.log.error(error);
+          nextFileObj(error);
+        }
+      }, function () {
+        grunt.file.write(destFile, compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
+        grunt.log.writeln('[react] File ' + destFile.cyan + ' created.');
+        nextFileObj();
       });
-    });
-  });
 
+    }, done);
+  });
 };
