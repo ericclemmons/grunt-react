@@ -174,3 +174,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ### v0.1.0
 
 - Initial release
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ericclemmons/grunt-react/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
