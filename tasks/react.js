@@ -61,10 +61,19 @@ module.exports = function(grunt) {
 
             grunt.log.writeln("[react] "+srcFile+" --> "+destFile);
 
-            var src     = fs.readFileSync(srcFile).toString();
-            var newSrc  = transform(src);
-            var destDir = path.dirname(destFile);
+            var src = fs.readFileSync(srcFile).toString();
+            var newSrc;
 
+            try {
+              newSrc = transform(src);
+            }
+            catch(e) {
+              grunt.log.error(e);
+              grunt.fail.warn('JSX failed to compile.');
+              return;
+            }
+
+            var destDir = path.dirname(destFile);
             mkdirp.sync(destDir);
 
             fs.writeFileSync(destFile, newSrc);
