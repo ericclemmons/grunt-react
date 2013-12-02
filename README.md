@@ -155,6 +155,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.5.2
+
+- `grunt.fail` instead of throwing an error ([#11](https://github.com/ericclemmons/grunt-react/pull/11))
+
 ### v0.5.1
 
 - Add file name to errors ([#15](https://github.com/ericclemmons/grunt-react/pull/15))
