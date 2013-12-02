@@ -2,7 +2,7 @@
  * grunt-react
  * https://github.com/ericclemmons/grunt-react
  *
- * Copyright (c) 2013 Eric Clemmons
+ * Copyright (c) 2013 Eric Clemmons, contributors
  * Licensed under the MIT license.
  */
 
@@ -16,10 +16,10 @@ module.exports = function(grunt) {
       all: [
         'Gruntfile.js',
         'tasks/*.js',
-        '<%= nodeunit.tests %>',
+        '<%= nodeunit.tests %>'
       ],
       options: {
-        jshintrc: '.jshintrc',
+        jshintrc: '.jshintrc'
       },
     },
 
@@ -36,29 +36,51 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp'],
+      tests: ['tmp']
     },
 
     // Configuration to be run (and then tested).
     react: {
-      default_options: {
+      single_js_files: {
         files: {
-          'tmp/default_options': 'test/fixtures/default_options'
-        },
-      },
-      extension_option: {
-        options: {
-          extension: 'jsx'
-        },
-        files: {
-          'tmp/extension_option': 'test/fixtures/extension_option'
+          'tmp/js/fixture.js': 'test/fixtures/js/fixture.js',
+          'tmp/js/fixture-jsx.js': 'test/fixtures/js/fixture-jsx.js'
         }
+      },
+      single_jsx_files: {
+        files: {
+          'tmp/jsx/fixture.js': 'test/fixtures/jsx/fixture.jsx',
+          'tmp/jsx/nested/fixture-js.js': 'test/fixtures/jsx/nested/fixture-js.jsx'
+        }
+      },
+      multiple_jsx_files: {
+        files: {
+          'tmp/multiple_jsx_files.js': ['test/fixtures/jsx/fixture.jsx', 'test/fixtures/jsx/nested/fixture-js.jsx']
+        }
+      },
+      dynamic_mappings: {
+        files: [
+          {
+            expand: true,
+            cwd: 'test/fixtures',
+            src: ['**/*.js'],
+            dest: 'tmp/dynamic_mappings/js',
+            ext: '.js'
+          },
+          {
+            expand: true,
+            cwd: 'test/fixtures',
+            src: ['**/*.jsx'],
+            dest: 'tmp/dynamic_mappings/jsx',
+            ext: '.js'
+          }
+        ]
       }
     },
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/*_test.js'],
+      tests: ['test/*_test.js']
     },
 
   });
