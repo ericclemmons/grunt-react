@@ -155,6 +155,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.5.1
+
+- Add file name to errors ([#15](https://github.com/ericclemmons/grunt-react/pull/15))
+
 ### v0.5.0
 
 - Update to `react-tools` `~v0.5.0`
