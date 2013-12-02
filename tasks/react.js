@@ -66,14 +66,14 @@ module.exports = function(grunt) {
 
             try {
               newSrc = transform(src);
-            }
-            catch(e) {
+            } catch(e) {
               grunt.log.error(e);
               grunt.fail.warn('JSX failed to compile.');
               return;
             }
 
             var destDir = path.dirname(destFile);
+
             mkdirp.sync(destDir);
 
             fs.writeFileSync(destFile, newSrc);
