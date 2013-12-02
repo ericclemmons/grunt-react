@@ -42,7 +42,6 @@ module.exports = function(grunt) {
 
         return true;
       }).map(function(dir) {
-
         var source  = path.resolve(dir);
         var target  = path.resolve(f.dest);
 
