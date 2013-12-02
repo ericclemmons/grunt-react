@@ -23,6 +23,17 @@ module.exports = function(grunt) {
       },
     },
 
+    // Used for testing the transformer
+    browserify: {
+      options: {
+        transform: [ require('./main').browserify ]
+      },
+      module: {
+        src: 'test/fixtures/browserify/module.jsx',
+        dest: 'tmp/browserify/module.js'
+      }
+    },
+
     // Before generating any new files, remove any previously-created files.
     clean: {
       tests: ['tmp'],
@@ -32,7 +43,7 @@ module.exports = function(grunt) {
     react: {
       default_options: {
         files: {
-          'tmp/default_options': 'test/fixtures',
+          'tmp/default_options': 'test/fixtures/default_options'
         },
       },
       extension_option: {
@@ -40,7 +51,7 @@ module.exports = function(grunt) {
           extension: 'jsx'
         },
         files: {
-          'tmp/extension_option': 'test/fixtures'
+          'tmp/extension_option': 'test/fixtures/extension_option'
         }
       }
     },

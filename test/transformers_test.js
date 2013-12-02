@@ -10,9 +10,9 @@ exports.transformers = {
   source_js: function(test) {
     test.expect(1);
 
-    var source    = fs.readFileSync('tmp/default_options/js/fixture.js').toString();
+    var source    = fs.readFileSync('tmp/default_options/fixture.js').toString();
     var actual    = Transformers.source(source);
-    var expected  = fs.readFileSync('tmp/default_options/js/fixture.js').toString();
+    var expected  = fs.readFileSync('tmp/default_options/fixture.js').toString();
 
     test.equal(actual, expected, 'should leave vanilla JS alone');
     test.done();
@@ -20,7 +20,7 @@ exports.transformers = {
   source_jsx: function(test) {
     test.expect(1);
 
-    var source    = fs.readFileSync('tmp/default_options/js/fixture-jsx.js').toString();
+    var source    = fs.readFileSync('tmp/default_options/fixture-jsx.js').toString();
     var actual    = Transformers.source(source);
     var expected  = fs.readFileSync('test/expected/default_options').toString();
 
