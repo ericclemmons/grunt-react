@@ -46,15 +46,13 @@ grunt.initConfig({
       }
     },
     dynamic_mappings: {
-      files: [
-        {
-          expand: true,
-          cwd: 'path/to/jsx/templates/dir',
-          src: ['**/*.jsx'],
-          dest: 'path/to/output/dir',
-          ext: '.js'
-        }
-      ]
+      files: {
+        expand: true,
+        cwd: 'path/to/jsx/templates/dir',
+        src: ['**/*.jsx'],
+        dest: 'path/to/output/dir',
+        ext: '.js'
+      }
     }
   },
 })
@@ -137,15 +135,13 @@ Then, set your Gruntfile to use:
 ```js
 grunt.initConfig({
   react: {
-    files: [
-      {
-        expand: true,
-        cwd: 'path/to/jsx/templates/dir',
-        src: ['**/*.jsx'],
-        dest: 'path/to/output/dir',
-        ext: '.js'
-      }
-    ]
+    files: {
+      expand: true,
+      cwd: 'path/to/jsx/templates/dir',
+      src: ['**/*.jsx'],
+      dest: 'path/to/output/dir',
+      ext: '.js'
+    }
   },
 })
 ```
