@@ -46,13 +46,15 @@ grunt.initConfig({
       }
     },
     dynamic_mappings: {
-      files: {
-        expand: true,
-        cwd: 'path/to/jsx/templates/dir',
-        src: ['**/*.jsx'],
-        dest: 'path/to/output/dir',
-        ext: '.js'
-      }
+      files: [
+        {
+          expand: true,
+          cwd: 'path/to/jsx/templates/dir',
+          src: ['**/*.jsx'],
+          dest: 'path/to/output/dir',
+          ext: '.js'
+        }
+      ]
     }
   },
 })
