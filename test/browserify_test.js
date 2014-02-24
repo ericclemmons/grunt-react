@@ -10,7 +10,7 @@ exports.transformers = {
   source_js: function(test) {
     test.expect(1);
 
-    var actual    = fs.readFileSync('tmp/browserify/module.js').toString();
+    var actual    = fs.readFileSync('tmp/browserify/module.js').toString() + '\n';
     var expected  = fs.readFileSync('test/expected/browserify').toString();
 
     test.equal(actual, expected, 'JSX should be compiled by browserify');
