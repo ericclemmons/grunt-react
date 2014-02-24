@@ -169,6 +169,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.7.0
+
+- Update to React v0.9.0 ([#24](https://github.com/ericclemmons/grunt-react/pull/24))
+
 ### v0.6.0
 
 - Task changes to allow for flexible file options as found in the `grunt-contrib-*` projects.
