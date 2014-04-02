@@ -1,7 +1,7 @@
 {
   "name": "grunt-react",
   "description": "Grunt task for compiling Facebook React's JSX templates into JavaScript",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "homepage": "https://github.com/ericclemmons/grunt-react",
   "author": {
     "name": "Eric Clemmons",

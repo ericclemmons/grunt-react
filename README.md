@@ -169,58 +169,37 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-### v0.8.1
-
-- Throw a proper error when React fails ([#25](https://github.com/ericclemmons/grunt-react/pull/25))
-
-### v0.8.0
-
-- Update to React v0.10.0 ([#27](https://github.com/ericclemmons/grunt-react/pull/27))
-
-### v0.7.0
-
-- Update to React v0.9.0 ([#24](https://github.com/ericclemmons/grunt-react/pull/24))
-
-### v0.6.0
-
-- Task changes to allow for flexible file options as found in the `grunt-contrib-*` projects.
-- Taking hints from `grunt-contrib-less` to allow for compiling single files separately, dynamic mappings and combining.
-- Removed `extension` option as this is determined by flexible file matching now.
-- Removed MT time ignoring, this can be easily done with the `grunt-newer` plugin.
-- Errors are ignored and skipped by default to match how other grunt plugins work.
-
-### v0.5.2
-
-- `grunt.fail` instead of throwing an error ([#11](https://github.com/ericclemmons/grunt-react/pull/11))
-
-### v0.5.1
-
-- Add file name to errors ([#15](https://github.com/ericclemmons/grunt-react/pull/15))
-
-### v0.5.0
-
-- Update to `react-tools` `~v0.5.0`
-
-### v0.4.1
-
-- Add logging to make it easier catch errors, thanks to @lorefnon ([#5](https://github.com/ericclemmons/grunt-react/pull/5))
-
-### v0.4.0
-
-- Update to react-tools ~0.4.0, thanks to @Agent-H ([#3](https://github.com/ericclemmons/grunt-react/pull/3))
-
-### v0.3.0
-
-- No longer uses `bin/jsx`, thanks to @petehunt ([#2](https://github.com/ericclemmons/grunt-react/pull/2))
+- v0.8.2
+  - Emit `react.error` for Growl & other notifications ([#23](https://github.com/ericclemmons/grunt-react/pull/23))
+- v0.8.1
+  - Throw a proper error when React fails ([#25](https://github.com/ericclemmons/grunt-react/pull/25))
+- v0.8.0
+  - Update to React v0.10.0 ([#27](https://github.com/ericclemmons/grunt-react/pull/27))
+- v0.7.0
+  - Update to React v0.9.0 ([#24](https://github.com/ericclemmons/grunt-react/pull/24))
+- v0.6.0
+  - Task changes to allow for flexible file options as found in the `grunt-contrib-*` projects.
+  - Taking hints from `grunt-contrib-less` to allow for compiling single files separately, dynamic mappings and combining.
+  - Removed `extension` option as this is determined by flexible file matching now.
+  - Removed MT time ignoring, this can be easily done with the `grunt-newer` plugin.
+  - Errors are ignored and skipped by default to match how other grunt plugins work.
+- v0.5.2
+  - `grunt.fail` instead of throwing an error ([#11](https://github.com/ericclemmons/grunt-react/pull/11))
+- v0.5.1
+  - Add file name to errors ([#15](https://github.com/ericclemmons/grunt-react/pull/15))
+- v0.5.0
+  - Update to `react-tools` `~v0.5.0`
+- v0.4.1
+  - Add logging to make it easier catch errors, thanks to @lorefnon ([#5](https://github.com/ericclemmons/grunt-react/pull/5))
+- v0.4.0
+  - Update to react-tools ~0.4.0, thanks to @Agent-H ([#3](https://github.com/ericclemmons/grunt-react/pull/3))
+- v0.3.0
+  - No longer uses `bin/jsx`, thanks to @petehunt ([#2](https://github.com/ericclemmons/grunt-react/pull/2))
 - Add `ignoreMTime` option
-
-### v0.2.0
-
-- Add `require('grunt-react').browserify()` and `require('grunt-react').source()` for compiling within Node
-
-### v0.1.0
-
-- Initial release
+- v0.2.0
+  - Add `require('grunt-react').browserify()` and `require('grunt-react').source()` for compiling within Node
+- v0.1.0
+  - Initial release
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ericclemmons/grunt-react/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
