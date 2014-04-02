@@ -169,6 +169,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.8.0
+
+- Update to React v0.10.0 ([#27](https://github.com/ericclemmons/grunt-react/pull/27))
+
 ### v0.7.0
 
 - Update to React v0.9.0 ([#24](https://github.com/ericclemmons/grunt-react/pull/24))
