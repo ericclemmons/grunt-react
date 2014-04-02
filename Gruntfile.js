@@ -25,12 +25,20 @@ module.exports = function(grunt) {
 
     // Used for testing the transformer
     browserify: {
-      options: {
-        transform: [ require('./main').browserify ]
-      },
       module: {
+        options: {
+          transform: [ require('./main').browserify ]
+        },
         src: 'test/fixtures/browserify/module.jsx',
         dest: 'tmp/browserify/module.js'
+      },
+      withSourceMaps: {
+        options: {
+          debug: true,
+          transform: [ require('./main').browserify.withSourceMaps ]
+        },
+        src: 'test/fixtures/browserify/module.jsx',
+        dest: 'tmp/browserify/module.withSourceMaps.js'
       }
     },
 
