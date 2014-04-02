@@ -51,9 +51,7 @@ module.exports = function(grunt) {
           compiled.push(transform(grunt.file.read(file), options));
           next();
         } catch (e) {
-          var error = grunt.log.wordlist(['[react] ' + e], { color: 'red' });
-          grunt.log.error(error);
-          nextFileObj(error);
+          grunt.fail.warn(e);
         }
       }, function () {
         grunt.file.write(destFile, compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
