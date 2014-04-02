@@ -169,6 +169,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.8.1
+
+- Throw a proper error when React fails ([#25](https://github.com/ericclemmons/grunt-react/pull/25))
+
 ### v0.8.0
 
 - Update to React v0.10.0 ([#27](https://github.com/ericclemmons/grunt-react/pull/27))
