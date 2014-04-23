@@ -109,6 +109,12 @@ Default value: `false`
 
 Speed up compilation of JSX files by skipping files not modified since last pass.
 
+#### options.harmony
+Type: `Boolean`
+Default value: `false`
+
+Turns on JS transformations such as ES6 Classes.
+
 - - -
 
 ### Usage Examples
