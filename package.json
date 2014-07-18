@@ -29,7 +29,7 @@
     "test": "./node_modules/.bin/grunt"
   },
   "dependencies": {
-    "react-tools": "~0.10.0",
+    "react-tools": "^0.11.0",
     "through": "~2.3.4"
   },
   "devDependencies": {
