@@ -175,6 +175,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.8.3
+  + Update to `react-tools` at `^v0.11.0`
 - v0.8.2
   - Emit `react.error` for Growl & other notifications ([#23](https://github.com/ericclemmons/grunt-react/pull/23))
 - v0.8.1
