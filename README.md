@@ -175,8 +175,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.8.4
+  + Add support for `harmony` via additional options. ([#32](https://github.com/ericclemmons/grunt-react/pull/32))
 - v0.8.3
-  + Update to `react-tools` at `^v0.11.0`
+  + Update to `react-tools` at `^v0.11.0` ([#33](https://github.com/ericclemmons/grunt-react/pull/33))
 - v0.8.2
   - Emit `react.error` for Growl & other notifications ([#23](https://github.com/ericclemmons/grunt-react/pull/23))
 - v0.8.1
