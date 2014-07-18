@@ -49,10 +49,11 @@ module.exports = function(grunt) {
 
         try {
           compiled.push(transform(grunt.file.read(file), options));
-          next();
         } catch (e) {
           grunt.event.emit('react.error', file, e);
           grunt.fail.warn(e);
+        } finally {
+          next();
         }
       }, function () {
         grunt.file.write(destFile, compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
