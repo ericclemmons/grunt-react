@@ -175,6 +175,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.9.0
+  + Continue compilation despite error. ([#31](https://github.com/ericclemmons/grunt-react/pull/31))
 - v0.8.4
   + Add support for `harmony` via additional options. ([#32](https://github.com/ericclemmons/grunt-react/pull/32))
 - v0.8.3
