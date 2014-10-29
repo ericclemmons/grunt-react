@@ -175,6 +175,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.10.0
+  + Update `react-tools` to `v0.12.0` ([#40](https://github.com/ericclemmons/grunt-react/pull/40)).
+    (See release notes: http://facebook.github.io/react/blog/2014/10/28/react-v0.12.html)
+
 - v0.9.0
   + Continue compilation despite error. ([#31](https://github.com/ericclemmons/grunt-react/pull/31))
 - v0.8.4
