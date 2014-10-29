@@ -1,7 +1,3 @@
-/**
- * @jsx React.DOM
- */
-
 var ModuleComponent = React.createClass({
   render: function() {
     return (

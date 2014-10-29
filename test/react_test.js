@@ -31,9 +31,9 @@ exports.react = {
     test.expect(1);
 
     var actual    = grunt.file.read('tmp/jsx/nested/fixture-js.js');
-    var expected  = grunt.file.read('test/fixtures/jsx/nested/fixture-js.jsx');
+    var expected  = grunt.file.read('test/expected/vanilla_js');
 
-    test.equal(actual, expected, 'should leave vanilla JS alone');
+    test.equal(actual, expected, 'should convert even vanilla JS');
     test.done();
   },
 
