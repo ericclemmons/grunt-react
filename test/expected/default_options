@@ -1,7 +1,3 @@
-/**
- * @jsx React.DOM
- */
-
 (function(greeting) {
   return greeting;
-})(React.DOM.p(null, "Howdy"));
+})(React.createElement("p", null, "Howdy"));

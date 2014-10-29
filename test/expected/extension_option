@@ -1,11 +1,7 @@
-/**
- * @jsx React.DOM
- */
-
 var FixtureComponent = React.createClass({displayName: 'FixtureComponent',
   render: function() {
     return (
-      React.DOM.p(null, "Howdy")
+      React.createElement("p", null, "Howdy")
     );
   }
 });
