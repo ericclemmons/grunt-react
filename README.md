@@ -113,6 +113,12 @@ Speed up compilation of JSX files by skipping files not modified since last pass
 Type: `Boolean`
 Default value: `false`
 
+#### options.sourceMap
+Type: `Boolean`
+Default value: `false`
+
+Append inline source map at the end of the transformed source
+
 Turns on JS transformations such as ES6 Classes.
 
 - - -
