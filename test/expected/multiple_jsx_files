@@ -1,4 +1,4 @@
-var FixtureComponent = React.createClass({displayName: 'FixtureComponent',
+var FixtureComponent = React.createClass({displayName: "FixtureComponent",
   render: function() {
     return (
       React.createElement("p", null, "Howdy")
@@ -10,7 +10,7 @@ var FixtureComponent = React.createClass({displayName: 'FixtureComponent',
  * Plain JS File with .jsx extension
  */
 
-var FixtureComponent = React.createClass({displayName: 'FixtureComponent',
+var FixtureComponent = React.createClass({displayName: "FixtureComponent",
   render: function() {
     return '<p>Howdy</p>';
   }
