@@ -175,6 +175,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.12.0
+  + Update all `dependencies` & `devDependencies`
+
 - v0.11.0
   + Update `react-tools` to `v0.13.0` ([#45](https://github.com/ericclemmons/grunt-react/pull/45))
 
