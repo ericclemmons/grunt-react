@@ -175,6 +175,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.12.1
+  + Fix issue with Browserify ([#46](https://github.com/ericclemmons/grunt-react/pull/49))
+
 - v0.12.0
   + Update all `dependencies` & `devDependencies`
 
@@ -225,4 +228,3 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ericclemmons/grunt-react/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
