@@ -185,6 +185,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.12.2
+  + Move verbose logging to `grunt --verbose` ([#53](https://github.com/ericclemmons/grunt-react/pull/53))
+
 - v0.12.1
   + Fix issue with Browserify ([#46](https://github.com/ericclemmons/grunt-react/pull/49))
 
