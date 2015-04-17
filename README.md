@@ -176,6 +176,10 @@ var MyComponent = React.createClass({displayName: 'MyComponent',
 });
 ```
 
+## Troubleshooting
+
+If you encounter a file compilation error, you can run `grunt --verbose` to see specifics about each file being transformed.
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
