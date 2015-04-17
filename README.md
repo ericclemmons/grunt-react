@@ -60,6 +60,42 @@ grunt.initConfig({
 })
 ```
 
+### Options
+
+These options are passed to react-tools.
+
+#### options.extension
+Type: `String`
+Default value: `js`
+
+Extension of files to search for JSX-syntax & convert to JS.
+
+#### options.ignoreMTime
+Type: `Boolean`
+Default value: `false`
+
+Speed up compilation of JSX files by skipping files not modified since last pass.
+
+#### options.harmony
+Type: `Boolean`
+Default value: `false`
+
+Turns on JS transformations such as ES6 Classes.
+
+#### options.sourceMap
+Type: `Boolean`
+Default value: `false`
+
+Append inline source map at the end of the transformed source
+
+Turns on JS transformations such as ES6 Classes.
+
+#### options.es6module
+Type: `Boolean`
+Default value: `false`
+
+Allows use of ES6 module syntax. This option does not affect ES6 transformations enabled or disabled by options.harmony.
+
 - - -
 
 ### Recommended Usage
@@ -93,33 +129,6 @@ browserify:     {
 ```
 
 You've successfully concatenated your JSX & JS files into one file!
-
-
-### Options
-
-#### options.extension
-Type: `String`
-Default value: `js`
-
-Extension of files to search for JSX-syntax & convert to JS.
-
-#### options.ignoreMTime
-Type: `Boolean`
-Default value: `false`
-
-Speed up compilation of JSX files by skipping files not modified since last pass.
-
-#### options.harmony
-Type: `Boolean`
-Default value: `false`
-
-#### options.sourceMap
-Type: `Boolean`
-Default value: `false`
-
-Append inline source map at the end of the transformed source
-
-Turns on JS transformations such as ES6 Classes.
 
 - - -
 
