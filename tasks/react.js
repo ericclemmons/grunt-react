@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 
       var compiled = [];
       grunt.util.async.concatSeries(files, function(file, next) {
-        grunt.log.writeln('[react] Compiling ' + file.cyan + ' --> ' + destFile.cyan);
+        grunt.verbose.writeln('[react] Compiling ' + file.cyan + ' --> ' + destFile.cyan);
 
         try {
           compiled.push(transform(grunt.file.read(file), options));
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
         }
       }, function () {
         grunt.file.write(destFile, compiled.join(grunt.util.normalizelf(grunt.util.linefeed)));
-        grunt.log.writeln('[react] File ' + destFile.cyan + ' created.');
+        grunt.verbose.writeln('[react] File ' + destFile.cyan + ' created.');
         nextFileObj();
       });
 
