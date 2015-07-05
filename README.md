@@ -111,7 +111,7 @@ npm install grunt-browserify --save-dev
 Second, register `grunt-browserify` in your Gruntfile:
 
 ```js
-grunt.loadNpmTasks('grunt-browserify')
+grunt.loadNpmTasks('grunt-browserify');
 ```
 
 Finally, add the following task to your Gruntfile:
