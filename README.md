@@ -1,13 +1,23 @@
-# grunt-react
+# [DEPRECATED] grunt-react
 
 [![Build Status](https://travis-ci.org/ericclemmons/grunt-react.png?branch=master)](https://travis-ci.org/ericclemmons/grunt-react)
 [![Dependencies](https://david-dm.org/ericclemmons/grunt-react.png)](https://david-dm.org/ericclemmons/grunt-react)
 [![devDependencies](https://david-dm.org/ericclemmons/grunt-react/dev-status.png)](https://david-dm.org/ericclemmons/grunt-react#info=devDependencies&view=table)
 
-
 > Grunt task for compiling [Facebook React](http://facebook.github.io/react/)'s JSX templates into JavaScript.
 
 It also works great with `grunt-browserify`!
+
+- - - 
+
+## DEPRECATION NOTICE
+
+On **June 12th, 2015**, the React team has deprecated `JSTransform` and `react-tools`, which this project uses:
+> http://facebook.github.io/react/blog/2015/06/12/deprecating-jstransform-and-react-tools.html
+
+Please use [`grunt-babel`](https://github.com/babel/grunt-babel) instead.
+
+- - -
 
 ## Getting Started
 This plugin requires Grunt `~0.4.0`
